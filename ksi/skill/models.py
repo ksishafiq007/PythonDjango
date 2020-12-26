@@ -11,6 +11,9 @@ class Myskill(models.Model):
     desc=models.TextField(max_length=1000,blank=True)
     datetime=models.DateTimeField(auto_now_add=False)
 
+    def summuary(self):
+        return self.desc[0:150]
+
     def __str__(self):
         return self.title
     
