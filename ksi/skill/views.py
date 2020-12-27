@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from .models import Myskill
+from .models import Myskill,Contactinfo
 
 def homepage(request):
     item=Myskill.objects.all()
@@ -26,6 +26,20 @@ def aboutpage(request):
     return render(request,'about.html')
 
 def contactpage(request):
+    if request.method=='POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        query = request.POST.get('comments')
+        #mydata=Contactinfo(cname=name,cemail=email,cquery=query)
+        
+        # or we can use with the below format.
+        mydata=Contactinfo()
+        mydata.cname=name
+        mydata.cemail=email
+        mydata.cquery=query
+
+        mydata.save()
+    
     return render(request,'contact.html')
 
 

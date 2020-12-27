@@ -9,7 +9,8 @@ Contact
 
 {% block contant %}
  <div class="mt-5">
-  <form action="" class="form-group mr-auto ml-auto col-md-6">
+  <form action="" method="POST" class="form-group mr-auto ml-auto col-md-6">
+    {% csrf_token %} 
   <h3 class="text-center">Contact page</h3> <hr>
   <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name"><br>
   <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email"><br>
