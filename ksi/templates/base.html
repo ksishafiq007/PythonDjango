@@ -34,13 +34,20 @@
         </li>        
       </ul>
 
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul class="navbar-nav mb-2 mb-lg-0"> 
+       {% if user.is_authenticated %}
+       <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">SignUp</a>
+        </li>  
+        {% else %}
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
         </li>   
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'home' %}">SignUp</a>
-        </li>           
+        </li>   
+        {% endif %}        
       </ul>
 
     <!--
